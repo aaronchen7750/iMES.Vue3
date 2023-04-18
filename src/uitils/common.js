@@ -6,12 +6,12 @@ let base = {
     }
     let dateArr = date.split(' ');
     date = new Date(new Date(date).setDate(new Date(date).getDate() + days));
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
     if (month < 10) {
       month = '0' + month;
     }
-    var day = date.getDate();
+    let day = date.getDate();
     if (day < 10) {
       day = '0' + day;
     }
@@ -71,7 +71,7 @@ let base = {
   },
   checkUrl(url) {
     // url= 协议://(ftp的登录信息)[IP|域名](:端口号)(/或?请求参数)
-    var strRegex =
+    let strRegex =
       '^((https|http|ftp)://)?' + // (https或http或ftp):// 可有可无
       "(([\\w_!~*'()\\.&=+$%-]+: )?[\\w_!~*'()\\.&=+$%-]+@)?" + // ftp的user@  可有可无
       '(([0-9]{1,3}\\.){3}[0-9]{1,3}' + // IP形式的URL- 3位数字.3位数字.3位数字.3位数字
@@ -83,7 +83,7 @@ let base = {
       '(:[0-9]{1,5})?' + // 端口- :80 ,1-5位数字
       '((/?)|' + // url无参数结尾 - 斜杆或这没有
       "(/[\\w_!~*'()\\.;?:@&=+$,%#-]+)+/?)$"; // 请求参数结尾- 英文或数字和[]内的各种字符
-    var re = new RegExp(strRegex, 'i'); // i不区分大小写
+    let re = new RegExp(strRegex, 'i'); // i不区分大小写
     // 将url做uri转码后再匹配，解除请求参数中的中文和空字符影响
     if (re.test(encodeURI(url))) {
       return true;
@@ -186,7 +186,7 @@ let base = {
       }
       data.url = data.backGroundUrl + data.url;
     }
-    var xmlResquest = new XMLHttpRequest();
+    let xmlResquest = new XMLHttpRequest();
     xmlResquest.open('get', data.url, true);
     xmlResquest.responseType = 'blob';
     xmlResquest.setRequestHeader('Content-Type', 'application/json');
@@ -197,7 +197,7 @@ let base = {
     }
     xmlResquest.onload = function() {
       if (this.status == 200) {
-        var blob = this.response;
+        let blob = this.response;
         callback(window.URL.createObjectURL(blob));
       }
     };
@@ -213,12 +213,9 @@ let base = {
   // 3、callback每次生成一新的节点的时回调的方法
 
   convertTree(data, callback) {
-    var treeIds = [];
-    var root_data = [];
+    let treeIds = [];
+    let root_data = [];
     data.forEach((x) => {
-      // if (!x.children) {
-      //   x.children = []
-      // }
       if (
         !x.hidden &&
         x.id !== undefined &&
@@ -235,7 +232,7 @@ let base = {
         callback && callback(x, data, true, treeIds);
       }
     });
-    var exceptionNodes = data.filter((f) => {
+    let exceptionNodes = data.filter((f) => {
       return treeIds.indexOf(f.id) == -1 && !f.hidden;
     });
 
@@ -244,7 +241,7 @@ let base = {
   },
   getTreeAllParent(id, data) {
     // 获取某个节点的所有父节点信息2020.11.01
-    var nodes = [];
+    let nodes = [];
     if (!(data instanceof Array)) {
       return nodes;
     }

@@ -195,31 +195,36 @@
         { name: "white", color: "#fff" },
       ]);
       const links = ref([
-        {
+        /* {
           text: "亮点介绍",
           // path: "https://www.625sc.com/imes/313.html",
           path: "https://www.baidu.com",
           id: -3,
-        },
-        {
+        }, */
+        /* {
           text: "文档介绍",
           // path: "https://www.625sc.com/imes/324.html",
           path: "https://www.baidu.com",
           id: -2,
-        },
+        }, */
+        // {
+        //   text: "官网介绍",
+        //   // path: "https://www.625sc.com/imes/",
+        //   path: "https://www.baidu.com",
+        //   id: -3
+        // },
+        // {
+        //   text: "视频介绍",
+        //   // path: "https://www.bilibili.com/video/BV1KY4y1d7EC",
+        //   path: "https://www.baidu.com",
+        //   id: -2,
+        // },
         {
-          text: "官网介绍",
-          // path: "https://www.625sc.com/imes/",
-          path: "https://www.baidu.com",
-          id: -3
+          text: "个人中心", 
+          path: "/UserInfo", 
+          id: -1, 
+          icon: "el-icon-s-custom"
         },
-        {
-          text: "视频介绍",
-          // path: "https://www.bilibili.com/video/BV1KY4y1d7EC",
-          path: "https://www.baidu.com",
-          id: -2,
-        },
-        { text: "个人中心", path: "/UserInfo", id: -1, icon: "el-icon-s-custom" },
         {
           text: "安全退出",
           path: "/login",
